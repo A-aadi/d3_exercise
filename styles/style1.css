@@ -1,0 +1,11 @@
+#container{
+    width: 100%;
+    height: auto;
+}
+
+.bar{
+    height: 20px;
+    border: 1px solid white;
+    text-align: end;
+    color: white;
+}
