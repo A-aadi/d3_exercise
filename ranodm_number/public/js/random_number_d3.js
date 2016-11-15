@@ -2,15 +2,14 @@ const WIDTH = 1180;
 const HEIGHT = 500;
 const MARGIN = 30;
 
-const INNER_WIDTH = WIDTH - 2 * MARGIN;
 const INNER_HEIGHT = HEIGHT - 2 * MARGIN;
 
 var xScale, yScale, group1, barSvg, lineSvg, numbers, line;
 
 var getRandomNumbers = function (min, max, limit) {
     numbers = [];
-    while(numbers.length <= limit){
-        random_number = (_.random(1,100));
+    while (numbers.length <= limit) {
+        var random_number = (_.random(1, 100));
         numbers.push(random_number);
     }
     return numbers;
