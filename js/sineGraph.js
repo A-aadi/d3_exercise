@@ -33,7 +33,7 @@ var createLineGraph = function (interpolate) {
     }
 
     document.getElementById("graphInterpolate").innerHTML = interpolate;
-    
+
     var data = [
         {x: 0, y: 5},
         {x: 1, y: 9},
@@ -50,9 +50,8 @@ var createLineGraph = function (interpolate) {
     var svg = d3.select("#container")
         .append("svg")
         .attr("width",WIDTH)
-        .attr("height", HEIGHT)
-        .text("ggmmmmm")
-
+        .attr("height", HEIGHT);
+    
     var xScale = d3.scaleLinear().domain([0, 1]).range([0,INNER_WIDTH]);
     var yScale = d3.scaleLinear().domain([1, 0]).range([0,INNER_HEIGHT]);
 
