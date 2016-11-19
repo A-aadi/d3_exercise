@@ -25,6 +25,7 @@ var createLineGraph = function (interpolate) {
     if (!document.getElementById("container").innerHTML == "" || null){
         d3.select("svg").remove();
     }
+
     var interpolateObj = {"curveLinear":d3.curveLinear, "curveStep":d3.curveStep, "curveStepBefore":d3.curveStepBefore, "curveStepAfter":d3.curveStepAfter,
         "curveBasis":d3.curveBasis, "curveCardinal":d3.curveCardinal, "curveMonotoneX":d3.curveMonotoneX, "curveCatmullRom":d3.curveCatmullRom};
 
