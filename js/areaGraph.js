@@ -7,13 +7,29 @@ const INNER_HEIGHT = HEIGHT - 2 * MARGIN;
 
 
 var createChart = function () {
+
+    var interpolations = [
+        d3.curveLinearClosed,
+        d3.curveStep,
+        d3.curveBasis,
+        d3.curveCardinalClosed,
+        d3.curveCatmullRomOpen
+    ];
+    for(var i=0; i<interpolations.length; i++){
+        createAreaGraph(interpolations[i]);
+    }
+
+}  ;
+
+var createAreaGraph = function (interpolation) {
+
     var data = [
         {x: 0, y: 5},
         {x: 1, y: 9},
         {x: 2, y: 7},
         {x: 3, y: 5},
         {x: 4, y: 3},
-        {x:5, y:3.5},
+        {x: 5, y: 3.5},
         {x: 6, y: 4},
         {x: 7, y: 2},
         {x: 8, y: 3},
@@ -45,12 +61,14 @@ var createChart = function () {
 
     var sinLine = d3.line()
         .x(function (d) {return xScale(d.x/10) ; })
-        .y(function (d) {return yScale((3*(Math.sin(d.x))+5)/10)});
+        .y(function (d) {return yScale((3*(Math.sin(d.x))+5)/10)})
+        .curve(interpolation);
 
     var area = d3.area()
         .x(function (d) {return xScale(d.x/10) ; })
         .y1(function (d) {return yScale((3*(Math.sin(d.x))+5)/10)})
-        .y0(INNER_HEIGHT);
+        .y0(INNER_HEIGHT)
+        .curve(interpolation);
 
 
     g.append('path')
